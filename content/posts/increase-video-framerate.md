@@ -1,5 +1,5 @@
 +++
-title = "How to increase a video framerate"
+title = "How to increase a video framerate locally"
 date = 2025-07-26
 tags = ["video", "framerate", "increase-framerate", "increse-video-framerate", "GPU", "FPS"]
 +++
@@ -9,13 +9,13 @@ We are going to use frame interpolation method to increase a video framerate usi
 - With NVIDIA GPU Card
 
 ```bash
-ffmpeg -hwaccel cuda -i input.mp4 -c:a copy -c:v libx264  -vf "minterpolate='mi_mode=mci:mc_mode=aobmc:vsbmc=1'" -c:v h264_nvenc -preset slow -r 60 -vb 20M  output.mp4
+ffmpeg -hwaccel cuda -i input.mp4 -vf "minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:vsbmc=1" -c:v h264_nvenc -preset p5 -b:v 20M -c:a copy output.mp4
 ```
 
-- Without NVIDIA Card
+-  Only Using CPU
 
 ```bash
-ffmpeg -i input.mp4 -c:a copy -c:v libx264 -vf "minterpolate=mi_mode=mci:mc_mode=aobmc:vsbmc=1" -preset slow -r 60 -b:v 20M output.mp4
+ffmpeg -i input.mp4 -vf "minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:vsbmc=1" -c:v libx264 -preset slow -crf 18 -c:a copy output.mp4
 ```
 
 - Explanation:

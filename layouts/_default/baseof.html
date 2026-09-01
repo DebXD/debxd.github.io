@@ -1,0 +1,24 @@
+<!-- base html -->
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+  <header>
+      <nav class="tabs">
+        <a class="tab{{ if .IsHome }} is-active{{ end }}" href="{{ "/" | relURL }}">Home</a>
+        <a class="tab{{ if eq .RelPermalink ("about/" | relURL) }} is-active{{ end }}" href="{{ "about/" | relURL }}">About</a>
+      </nav>
+  </header>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
+</html>

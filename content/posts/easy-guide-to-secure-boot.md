@@ -12,7 +12,7 @@ There are many ways to do it but I have found easier way to do it with signing t
 
 So, We are gonna use tool called `sbctl` which does that for us.
 
-Remember, I am no expert on this and I am writing from my experience.
+Remember, I am no expert on this and writing from my experience.
 
 ## Let's start
 
