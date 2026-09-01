@@ -1,4 +1,4 @@
-baseURL = 'https://debiprasaddasxyz.github.io/'
+baseURL = 'https://debnation.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'my blog site'
 enableRobotsTXT = true
